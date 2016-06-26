@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Coffee Orders</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+
+    <script src="scripts/pace.min.js"></script>
+    <link rel="stylesheet" href='stylesheets/index.css' />
+    <script src="scripts/betterinnerhtml.js"></script>
+
+    <script src="scripts/browser_detection.js"></script>
+</head>
+
+<body>
+    <div id='result'></div>
+    <h2>
+	    <img src="images/coffee_clipart.png" class="image-alignment" /><!-- style="width: 950px; height: 747px"-->
+        <span>Coffee Orders</span>
+    </h2>
+    <hr/>
+    <span id="error_update"></span>
+    <template id='order-template'>
+        <li data-id="{{id}}">
+            <p>
+                <!--#e31616-->
+                <strong>Name:&nbsp;</strong>
+                <br/>
+                <span class="noedit name">{{name}}</span>
+                <input type="text" class="edit name" />
+            </p>
+            <p>
+                <strong>Drink:&nbsp;</strong>
+                <br/>
+                <span class="noedit drink">{{drink}}</span>
+                <!--<input type="text" class="edit drink" />-->
+                <select id='coffee_list1' class="edit drink">
+                    <optgroup label="1 Espresso and Variations">
+                        <option>1.1 Caffè Americano</option>                            
+                        <option>1.2 Café Cubano</option>
+                        <option>1.3 Caffè crema</option>
+                        <option>1.4 Cafe Zorro</option>
+                        <option>1.5 Doppio</option>
+                        <option>1.6 Espresso Romano</option>
+                        <option>1.7 Guillermo</option>
+                        <option>1.8 Ristretto</option>
+                    </optgroup>
+                    <optgroup label="2 Espresso with Milk">
+
+                        <option>2.1 Antoccino</option>
+                        <option>2.2 Breve</option>
+                        <option>2.3 Café bombón</option>
+                        <option>2.4 Cappuccino</option>
+                        <option>2.5 Cortado</option>
+                        <optgroup label="Latte">
+                            <option>2.6 Latte</option>
+                            <option>2.6.1 Latte macchiato</option>
+                        </optgroup>
+                        <option>2.7 Espressino</option>
+                        <option>2.8 Flat white</option>
+                        <option>2.9 Galão</option>
+                        <option>2.10 Macchiato</option>
+                        <option>2.11 Wiener or Viennese melange</option>
+                    </optgroup>
+                    <optgroup label="3 Coffee with milk">
+                        <option>3.1 Café au lait</option>
+                        <option>3.2 Ca phe sua da</option>
+                        <option>3.3 Egg coffee</option>
+                        <option>3.4 Eggnog latte</option>
+                        <option>3.5 Eiskaffee</option>
+                        <option>3.6 Kopi susu</option>
+                        <option> 3.7 White coffee</option>
+                        <option> 3.8 White coffee (England)</option>
+                    </optgroup>
+                    <optgroup label="4 Coffee or espresso with whipped cream">
+                        <option>4.1 Vienna coffee</option>
+                        <option>4.2 Espresso con panna</option>
+                    </optgroup>
+
+
+
+                    <optgroup label="5 Combinations">
+
+                        <option>5.1 Coffee with espresso</option>
+                        <optgroup label="5.2 Coffee with tea">
+                            <option>5.2.1 Black tie</option>
+                            <option>5.2.2 Chai latte</option>
+                            <option>5.2.3 Red tie</option>
+                            <option>5.2.4 Yuanyang</option>
+                        </optgroup>
+                        <optgroup label="5.3 Coffee with alcohol">
+                            <option>5.3.1 Liqueur coffee</option>
+                            <option>5.3.2 Irish coffee</option>
+                            <option>5.3.3 Rüdesheimer Kaffee</option>
+                            <option>5.3.4 Pharisäer</option>
+                            <option>5.3.5 Carajillo</option>
+                        </optgroup>
+                    </optgroup>
+                    <optgroup label="6 Flavoured">
+
+                        <option>6.1 Melya</option>
+                        <option>6.2 Caffè Marocchino</option>
+                        <option>6.3 Café miel</option>
+                        <option>6.4 Mocha or café mocha or mochaccino</option>
+                        <option>6.5 Café de olla</option>
+                    </optgroup>
+                    <optgroup label="7 Iced">
+
+                        <option>7.1 Greek frappé coffee</option>
+                        <option>7.2 Mazagran</option>
+                        <option>7.3 Palazzo</option>
+                        <option>7.4 Ice Shot</option>
+                    </optgroup>
+                    <option>8 Instant coffee"</option>
+                    <option>9 Canned coffee</option>
+                    <option>10 Coffee milk</option>
+                    <option>11 Decaffeinated</option>
+                    <optgroup label="12 Other">
+
+                        <option>12.1 Affogato</option>
+                        <option>12.2 Caffè Medici</option>
+                        <option>12.3 Café Touba</option>
+                        <option>12.4 Indian filter coffee</option>
+                        <option>12.5 Moka</option>
+                        <option>12.6 Shakerato</option>
+                        <option>12.7 Pocillo</option>
+                    </optgroup>
+            </p>
+            <p>
+                <strong>Customer Order ID:&nbsp;</strong>
+                <br/>
+                <span>{{id}}</span>
+            </p>
+            
+            <!--<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>-->
+            <!--<button data-id="{{id}}" class="remove">X</button>-->
+            <p>
+            <input type="button" data-id="{{id}}" class="remove" value="X" style="color:#ff0f0f;" />
+            <!--<button data-id="{{id}}" class="editOrder noedit">Edit</button>-->
+            <input type="button" data-id="{{id}}" class="editOrder noedit" value="Edit" style="color:#4cc500;" />
+            <!--<button data-id="{{id}}" class="cancelEdit edit">Cancel</button>-->
+            <input type="button" data-id="{{id}}" class="cancelEdit edit" value="Cancel" style="color:#9b45e6;" />
+            <!--<button data-id="{{id}}" class="saveEdit edit">Save</button>-->
+            <input type="button" data-id="{{id}}" class="saveEdit edit" value="Save" style="color:#ad690a;" />
+            <!--5cdaae-->
+            </p>
+            <script type="text/javascript" src="scripts/buttons.js"></script>
+        </li>
+
+    </template>
+    <div class="orders-div">
+        <ul id="orders"></ul>
+    </div>
+    <p id="error_input" class="hidden red"></p>
+    <h4>Add a Coffee Order</h4>
+    <p>
+        <span>Name:&nbsp;</span>
+        <br/>
+        <input type="text" id="name" />
+    </p>
+    <p>
+        <span>Drink:&nbsp;</span>
+        <br/>
+        <!--<input type="text" id="drink" />-->
+        <select id='coffee_list'>
+            <option value="1" selected="selected">--Select a Coffee--</option>
+            <optgroup label="1 Espresso and Variations">
+
+                <option>1.1 Caffè Americano</option>
+                <option>1.2 Café Cubano</option>
+                <option>1.3 Caffè crema</option>
+                <option>1.4 Cafe Zorro</option>
+                <option>1.5 Doppio</option>
+                <option>1.6 Espresso Romano</option>
+                <option>1.7 Guillermo</option>
+                <option>1.8 Ristretto</option>
+            </optgroup>
+            <optgroup label="2 Espresso with Milk">
+
+                <option>2.1 Antoccino</option>
+                <option>2.2 Breve</option>
+                <option>2.3 Café bombón</option>
+                <option>2.4 Cappuccino</option>
+                <option>2.5 Cortado</option>
+                <optgroup label="Latte">
+                    <option>2.6 Latte</option>
+                    <option>2.6.1 Latte macchiato</option>
+                </optgroup>
+                <option>2.7 Espressino</option>
+                <option>2.8 Flat white</option>
+                <option>2.9 Galão</option>
+                <option>2.10 Macchiato</option>
+                <option>2.11 Wiener or Viennese melange</option>
+            </optgroup>
+            <optgroup label="3 Coffee with milk">
+                <option>3.1 Café au lait</option>
+                <option>3.2 Ca phe sua da</option>
+                <option>3.3 Egg coffee</option>
+                <option>3.4 Eggnog latte</option>
+                <option>3.5 Eiskaffee</option>
+                <option>3.6 Kopi susu</option>
+                <option> 3.7 White coffee</option>
+                <option> 3.8 White coffee (England)</option>
+            </optgroup>
+            <optgroup label="4 Coffee or espresso with whipped cream">
+                <option>4.1 Vienna coffee</option>
+                <option>4.2 Espresso con panna</option>
+            </optgroup>
+
+
+
+            <optgroup label="5 Combinations">
+
+                <option>5.1 Coffee with espresso</option>
+                <optgroup label="5.2 Coffee with tea">
+                    <option>5.2.1 Black tie</option>
+                    <option>5.2.2 Chai latte</option>
+                    <option>5.2.3 Red tie</option>
+                    <option>5.2.4 Yuanyang</option>
+                </optgroup>
+                <optgroup label="5.3 Coffee with alcohol">
+                    <option>5.3.1 Liqueur coffee</option>
+                    <option>5.3.2 Irish coffee</option>
+                    <option>5.3.3 Rüdesheimer Kaffee</option>
+                    <option>5.3.4 Pharisäer</option>
+                    <option>5.3.5 Carajillo</option>
+                </optgroup>
+            </optgroup>
+            <optgroup label="6 Flavoured">
+
+                <option>6.1 Melya</option>
+                <option>6.2 Caffè Marocchino</option>
+                <option>6.3 Café miel</option>
+                <option>6.4 Mocha or café mocha or mochaccino</option>
+                <option>6.5 Café de olla</option>
+            </optgroup>
+            <optgroup label="7 Iced">
+
+                <option>7.1 Greek frappé coffee</option>
+                <option>7.2 Mazagran</option>
+                <option>7.3 Palazzo</option>
+                <option>7.4 Ice Shot</option>
+            </optgroup>
+            <option>8 Instant coffee"</option>
+            <option>9 Canned coffee</option>
+            <option>10 Coffee milk</option>
+            <option>11 Decaffeinated</option>
+            <optgroup label="12 Other">
+
+                <option>12.1 Affogato</option>
+                <option>12.2 Caffè Medici</option>
+                <option>12.3 Café Touba</option>
+                <option>12.4 Indian filter coffee</option>
+                <option>12.5 Moka</option>
+                <option>12.6 Shakerato</option>
+                <option>12.7 Pocillo</option>
+            </optgroup>
+        </select>
+    </p>
+    <p>
+        <textarea></textarea>
+    </p>
+    <!--button id="add-order">Add!</button>-->
+    <input type="button" id="add-order" value="Add!" />
+    <br/>
+    <hr/>
+    <br/>
+    <br/>
+    <script src="scripts/betterinnerhtml.js"></script>
+    <script src="scripts/browser_detection.js"></script>
+    <script type="text/javascript" src="jQuery/jquery.min.js"></script>
+    <!--https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js-->
+    <link rel="stylesheet" type="text/css" href="jQueryUI/jquery-ui-1.11.4.custom/jquery-ui.css" />
+    <script type="text/javascript" src="jQueryUI/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src='Mustache/mustache.github.com-master/extras/mustache.js'></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/buttons.js"></script>
+</body>
+
+</html>

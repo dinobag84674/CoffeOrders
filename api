@@ -1,0 +1,67 @@
+ReSTful API: http://rest.learncode.academy/api/0b7ytdAPI/orders
+=========
+From Backend Team
+
+API
+
+-------
+Get All Orders
+
+GET request to http://rest.learncode.academy/api/0b7ytdAPI/orders
+Sample Response:
+[
+    {
+        id: 1,
+        name: 'James',
+        drink: 'Coffee'
+    },
+    {
+        id: 2,
+        name: 'John',
+        drink: 'Latte'
+    }
+]
+
+
+--------
+Add an Order
+
+POST request to http://rest.learncode.academy/api/0b7ytdAPI/orders
+Type: JSON
+
+Sample Post:
+{
+    name: 'James',
+    drink: 'Coffee',
+}
+
+Sample Response:
+{
+    id: 3,
+    name: 'James',
+    drink: 'Coffee'
+}
+
+--------
+Update an Order
+
+PUT request to http://rest.learncode.academy/api/0b7ytdAPI/orders
+
+Sample Post:
+{
+    id: 1,
+    name: 'James',
+    drink: 'Coffee'
+}
+
+Sample Response:
+{
+    id: 1,
+    name: '',
+    drink: ''
+}
+
+--------
+Delete an Order
+
+DELETE request to http://rest.learncode.academy/api/0b7ytdAPI/orders

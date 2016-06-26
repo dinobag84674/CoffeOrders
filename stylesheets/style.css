@@ -1,0 +1,206 @@
+body {
+    font-family: Verdana;
+    padding: 10px;
+    font-size: 14px;
+    /* background-color: #f0ffff; */
+    font-size: 14px;
+    overflow: scroll;
+}
+.hidden {
+    display: none;
+}
+.red {
+    color: red;
+}
+.shown {
+    display: initial;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255,0,0,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+::-webkit-scrollbar-thumb:hover {
+	background:#F36C6C/* #ffcccb #d28787*/;
+}
+/*}
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #776536; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+::-webkit-scrollbar-thumb:hover {
+	background: olive; 
+}*/
+
+/*a {
+    color: #f0ffff;
+}*/
+ul {
+    padding: 0;
+}
+ul li {
+    list-style-type: none;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 250px;
+    font-family: Comic Sans ms
+}
+ul li .edit {
+    display: none;
+}
+ul li.edit .edit {
+    display: initial;
+}
+ul li.edit .noedit {
+    display: none;
+}
+.remove {
+    color: #ff0f0f;
+}
+input[type=text], textarea, select {
+    border-radius: 5px;
+    font-family: Comic Sans MS;
+    font-size: 13px;
+    border: 1px solid #d0d0d0;
+    border-top: 1px solid #bbb;
+    -webkit-box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.07) inset;
+    -moz-box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.07) inset;
+    box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.07) inset;
+    outline: 0;
+    outline-width: 0;
+    padding: 5px;
+    width: 246px;
+    /*border: 1px solid #1e90ff;*/
+}
+select {
+    width: 257px;
+}
+input[type=text]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #9ecaed;
+    border-width: 1px;
+    box-shadow: 0 0 10px #9ecaed;
+    -webkit-box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.07) inset;
+    -moz-box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.07) inset;
+    /*border: none;*/
+}
+.image-alignment {
+    float: right;
+    width: 950px;
+    height: 747px;
+    /* vertical-align: top;*/
+    top: -20px;
+    left: 379px;
+    
+}
+#add-order {
+    color:#06b4cf;
+}
+.orders-div {
+    height: 480px; 
+    width: 400px;
+    overflow-y: scroll;
+    border: 2px dashed gray;
+}
+.orders-div::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+.orders-div::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+.orders-div::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255,0,0,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.orders-div::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+.orders-div::-webkit-scrollbar-thumb:hover {
+	background:#F36C6C/* #ffcccb #d28787*/;
+}
+@media screen and (max-width: 1350px) 
+{
+    .image-alignment
+    {
+        display: none;
+    }
+}
+pre {
+    text-align: center;
+}
+.code {
+    text-align: center;
+}
+/*div {   
+    height:200px;
+    word-wrap: break-word;
+}
+
+    .glowing-border {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+.glowing-border:focus { 
+
+}
+}*/
+
+
+/*
+label {
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 50px;
+    text-align: right;
+}
+label .edit {
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 50px;
+    text-align: right; 
+}
+input[type=text], input[type=text].edit .edit {
+  display: inline-block;
+  float: left;
+}*/
